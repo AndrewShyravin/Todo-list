@@ -2,11 +2,13 @@ import Todo from './Todo';
 import './TodoList.css';
 
 const TodoList = (props) => {
-  const { todos } = props;
+  const { todos, deleteTodo } = props;
   return (
     <div>
-      {todos.map((todo) => {
-        return <Todo todo={todo} />;
+      {todos.map((todo, index) => {
+        return (
+          <Todo todo={todo} key={index} index={index} deleteTodo={deleteTodo} />
+        );
       })}
     </div>
   );
