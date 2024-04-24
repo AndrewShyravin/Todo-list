@@ -1,14 +1,15 @@
+import { useSelector } from 'react-redux';
+import { selectTodo } from '../redux/todoSlice';
 import Todo from './Todo';
 import './TodoList.css';
 
-const TodoList = (props) => {
-  const { todos, deleteTodo } = props;
+const TodoList = () => {
+  const todos = useSelector(selectTodo);
+  console.log(todos);
   return (
     <div>
       {todos.map((todo, index) => {
-        return (
-          <Todo todo={todo} key={index} index={index} deleteTodo={deleteTodo} />
-        );
+        return <Todo todo={todo} key={index} />;
       })}
     </div>
   );

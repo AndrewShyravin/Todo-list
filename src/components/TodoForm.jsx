@@ -1,19 +1,23 @@
 import { useState } from 'react';
+import { useDispatch } from 'react-redux';
+import { addTodo } from '../redux/todoSlice';
+// import createTodo from '../utils/createTodo';
 import './TodoForm.css';
 
-const TodoForm = ({ addTodo }) => {
+const TodoForm = () => {
+  const dispatch = useDispatch();
   const [text, setText] = useState('');
   const textHandler = (event) => {
     setText(event.target.value);
   };
-  const onSubmitHandler = (event) => {
+  const submitHandler = (event) => {
     event.preventDefault();
-    addTodo(text);
+    dispatch(addTodo(text));
     setText('');
   };
   return (
     <div>
-      <form onSubmit={onSubmitHandler}>
+      <form onSubmit={submitHandler}>
         <input
           placeholder="Введите новую задачу"
           value={text}
