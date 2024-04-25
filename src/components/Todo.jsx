@@ -1,10 +1,10 @@
 import './Todo.css';
 
 const Todo = (props) => {
-  const { todo } = props;
+  const { text } = props;
   return (
     <div>
-      <h1>{todo}</h1>
+      <h1>{text}</h1>
       <button>delete</button>
     </div>
   );

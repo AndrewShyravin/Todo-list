@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { addTodo } from '../redux/todoSlice';
-// import createTodo from '../utils/createTodo';
+import createTodo from '../utils/createTodo';
 import './TodoForm.css';
 
 const TodoForm = () => {
@@ -12,7 +12,7 @@ const TodoForm = () => {
   };
   const submitHandler = (event) => {
     event.preventDefault();
-    dispatch(addTodo(text));
+    dispatch(addTodo(createTodo(text)));
     setText('');
   };
   return (

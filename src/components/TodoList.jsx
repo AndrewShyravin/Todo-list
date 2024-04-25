@@ -8,8 +8,8 @@ const TodoList = () => {
   console.log(todos);
   return (
     <div>
-      {todos.map((todo, index) => {
-        return <Todo todo={todo} key={index} />;
+      {todos.map((todos) => {
+        return <Todo text={todos.text} key={todos.id} />;
       })}
     </div>
   );
