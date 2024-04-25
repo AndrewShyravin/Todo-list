@@ -5,25 +5,23 @@ import createTodo from '../utils/createTodo';
 import './TodoForm.css';
 
 const TodoForm = () => {
-  const dispatch = useDispatch();
   const [text, setText] = useState('');
-  const textHandler = (event) => {
-    setText(event.target.value);
-  };
+  const dispatch = useDispatch();
+
   const submitHandler = (event) => {
     event.preventDefault();
     dispatch(addTodo(createTodo(text)));
     setText('');
   };
   return (
-    <div>
+    <div className="todo__form">
       <form onSubmit={submitHandler}>
         <input
           placeholder="Введите новую задачу"
           value={text}
-          onChange={textHandler}
+          onChange={(event) => setText(event.target.value)}
         />
-        <button type="submit">Submit</button>
+        <button type="submit">Add</button>
       </form>
     </div>
   );

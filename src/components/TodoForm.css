@@ -1,0 +1,27 @@
+.todo__form {
+  margin: 20px 0;
+}
+
+.todo__form input {
+  width: 500px;
+  font-size: 20px;
+  margin-right: 10px;
+  padding: 15px 5px;
+  border-radius: 10px;
+  border: 2px solid #555;
+  outline: none;
+}
+
+.todo__form button {
+  height: 54px;
+  cursor: pointer;
+  background-color: beige;
+  font-size: 15px;
+  padding: 5px;
+  border: 2px solid #555;
+  border-radius: 5px;
+}
+
+.todo__form button:hover {
+  background-color: rgb(175, 243, 191);
+}

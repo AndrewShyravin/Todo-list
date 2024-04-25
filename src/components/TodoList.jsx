@@ -11,7 +11,7 @@ const TodoList = () => {
     dispatch(deleteTodo(id));
   };
   return (
-    <div>
+    <div className="todos__list">
       {todos.map((todos) => {
         return (
           <Todo

@@ -6,9 +6,12 @@ const Todo = (props) => {
   useSelector(selectTodo);
   const { text, deleteTodo, id } = props;
   return (
-    <div>
-      <h1>{text}</h1>
-      <button onClick={() => deleteTodo(id)}>delete</button>
+    <div className="todo">
+      <p>{text}</p>
+      <div className="buttons">
+        <button>Complete</button>
+        <button onClick={() => deleteTodo(id)}>Delete</button>
+      </div>
     </div>
   );
 };
