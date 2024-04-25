@@ -3,9 +3,6 @@ import TodoForm from './components/TodoForm';
 import TodoList from './components/TodoList';
 
 function App() {
-  // const deleteTodoHandler = (index) => {
-  //   setTodos(todos.filter((_, id) => id !== index));
-  // };
   return (
     <div className="App">
       <h1>Todo App</h1>

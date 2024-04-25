@@ -23,8 +23,8 @@ const TodoForm = () => {
           value={text}
           onChange={textHandler}
         />
+        <button type="submit">Submit</button>
       </form>
-      <button type="submit">Submit</button>
     </div>
   );
 };
