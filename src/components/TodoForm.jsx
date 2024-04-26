@@ -10,7 +10,9 @@ const TodoForm = () => {
 
   const submitHandler = (event) => {
     event.preventDefault();
-    dispatch(addTodo(createTodo(text)));
+    if (text) {
+      dispatch(addTodo(createTodo(text)));
+    }
     setText('');
   };
   return (

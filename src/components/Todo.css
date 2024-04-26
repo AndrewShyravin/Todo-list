@@ -11,19 +11,49 @@
   background-color: #fbfef9;
 }
 
-.todo button {
+.todoCompleted {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 5px 10px 10px;
+  margin: 5px 0;
+  font-size: 20px;
+  border-radius: 5px;
+  border: 2px solid #555;
+  color: #000000;
+  background-color: #fbfef9;
+}
+
+.complete__btn {
+  margin-right: 5px;
   font-size: 12px;
   padding: 5px;
   background-color: beige;
   border-radius: 5px;
 }
 
-.todo button:hover {
+.delete__btn {
+  margin-right: 5px;
+  font-size: 12px;
+  padding: 5px;
+  background-color: beige;
+  border-radius: 5px;
+}
+
+.delete__btn:hover {
   background-color: #f7b8b8;
 }
 
-.buttons {
-  width: 115px;
-  display: flex;
-  justify-content: space-between
+.complete__btn:hover {
+  background-color: rgb(175, 243, 191);
+}
+
+.isComplete {
+  background-color: #555;
+  color: #fbfef9;
+  opacity: 0.5;
+}
+
+.isComplete .complete__btn {
+  display: none;
 }
