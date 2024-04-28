@@ -1,20 +1,12 @@
 import './Todo.css';
-import { useSelector } from 'react-redux';
-import { selectTodo } from '../redux/todoSlice';
-import { useState } from 'react';
 
 const Todo = (props) => {
-  const { text, deleteTodo, id } = props;
-  const [isComplete, setIsComplete] = useState('todo');
-  useSelector(selectTodo);
+  const { text, deleteTodo, id, completeTodo, isCompleted } = props;
   return (
-    <div className={isComplete}>
+    <div className={isCompleted ? 'todoCompleted isComplete' : 'todo'}>
       <p>{text}</p>
       <div>
-        <button
-          className="complete__btn"
-          onClick={() => setIsComplete('todoCompleted isComplete')}
-        >
+        <button className="complete__btn" onClick={() => completeTodo(id)}>
           Complete
         </button>
         <button className="delete__btn" onClick={() => deleteTodo(id)}>

@@ -1,5 +1,6 @@
 .todo__form {
   margin: 20px 0;
+  display: flex;
 }
 
 .todo__form input {

@@ -4,6 +4,7 @@ const createTodo = (text) => {
   return {
     text,
     id: uuidv4(),
+    isCompleted: false,
   };
 };
 
