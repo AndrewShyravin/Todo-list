@@ -15,14 +15,14 @@ const Todo = ({ text, deleteTodo, id, completeTodo, isCompleted }) => {
         <button className="complete__btn" onClick={() => completeTodo(id)}>
           Complete
         </button>
-        <button className="delete__btn" onClick={() => deleteTodo(id)}>
-          Delete
-        </button>
         <button
           className="edit__btn"
           onClick={() => setIsOpenEdit(!isOpenEdit)}
         >
           Edit
+        </button>
+        <button className="delete__btn" onClick={() => deleteTodo(id)}>
+          Delete
         </button>
       </div>
     </div>
