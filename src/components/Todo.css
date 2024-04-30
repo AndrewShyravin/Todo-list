@@ -26,9 +26,7 @@
 
 .complete__btn,
 .delete__btn,
-.edit__btn,
-.save__btn,
-.cancel__btn {
+.edit__btn {
   margin-right: 5px;
   font-size: 12px;
   padding: 5px;
@@ -60,27 +58,4 @@
 
 .isComplete .edit__btn {
   display: none;
-}
-
-textarea {
-  border: none;
-  outline: none;
-  resize: none;
-  background-color: #fbfef9;
-  font-size: 20px;
-  height: 25px;
-}
-
-.area__edit {
-  display: flex;
-  flex-direction: column;
-}
-
-.edit__buttons {
-  display: flex;
-  margin-top: 3px;
-}
-
-.save__edit {
-  margin-right: 3px;
 }

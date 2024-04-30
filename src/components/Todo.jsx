@@ -1,44 +1,13 @@
 import { useState } from 'react';
 import './Todo.css';
-import { useDispatch } from 'react-redux';
-import { editTodo } from '../redux/todoSlice';
+import EditTodo from './EditTodo';
 
-const Todo = (props) => {
-  const { text, deleteTodo, id, completeTodo, isCompleted } = props;
+const Todo = ({ text, deleteTodo, id, completeTodo, isCompleted }) => {
   const [isOpenEdit, setIsOpenEdit] = useState(false);
-  const [textEdit, setTextEdit] = useState('');
-  const dispatch = useDispatch();
-  const editTextHandler = () => {
-    dispatch(editTodo({ id, newText: textEdit }));
-    setIsOpenEdit(false);
-  };
-  const handleEdit = (event) => {
-    setTextEdit(event.target.value);
-  };
-
   return (
     <div className={isCompleted ? 'todoCompleted isComplete' : 'todo'}>
       {isOpenEdit ? (
-        <div className="area__edit">
-          <textarea
-            value={textEdit}
-            placeholder={text}
-            onChange={handleEdit}
-          ></textarea>
-          <div className="edit__buttons">
-            <button className="save__btn" onClick={editTextHandler}>
-              Save
-            </button>
-            <button
-              className="cancel__btn"
-              onClick={() => {
-                setIsOpenEdit(false);
-              }}
-            >
-              Cancel
-            </button>
-          </div>
-        </div>
+        <EditTodo id={id} setIsOpenEdit={setIsOpenEdit} />
       ) : (
         <p>{text}</p>
       )}
