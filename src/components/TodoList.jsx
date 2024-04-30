@@ -43,18 +43,19 @@ const TodoList = ({ isClickOnBtn, selectFilter }) => {
 
   return (
     <div className="todos__list">
-      {filteredTodos.map((todo) => {
-        return (
-          <Todo
-            deleteTodo={deleteTodoHandler}
-            completeTodo={completeTodoHandler}
-            text={todo.text}
-            key={todo.id}
-            id={todo.id}
-            isCompleted={todo.isCompleted}
-          />
-        );
-      })}
+      {<p>Todo list is epmty</p> &&
+        filteredTodos.map((todo) => {
+          return (
+            <Todo
+              deleteTodo={deleteTodoHandler}
+              completeTodo={completeTodoHandler}
+              text={todo.text}
+              key={todo.id}
+              id={todo.id}
+              isCompleted={todo.isCompleted}
+            />
+          );
+        })}
     </div>
   );
 };
