@@ -3,7 +3,7 @@ import './Filter.css';
 const Filter = ({ selectFilter, setSelectFilter }) => {
   return (
     <div className="select__menu">
-      <label>Сортировка по:</label>
+      <label>Filter as</label>
       <select
         onChange={(event) => setSelectFilter(event.target.value)}
         value={selectFilter}

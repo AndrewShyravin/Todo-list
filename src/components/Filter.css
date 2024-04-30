@@ -1,3 +1,15 @@
 .select__menu {
   display: flex;
+  margin: 10px 0;
+  justify-content: center;
+}
+
+.select__menu label {
+  font-size: 20px;
+  margin-right: 5px;
+}
+
+.select__menu select {
+  outline: none;
+  border-radius: 7px;
 }
