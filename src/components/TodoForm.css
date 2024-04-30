@@ -1,6 +1,11 @@
 .todo__form {
   margin: 20px 0;
   display: flex;
+  flex-direction: column;
+}
+
+.select__menu {
+  display: flex;
 }
 
 .todo__form input {

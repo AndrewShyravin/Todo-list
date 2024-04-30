@@ -24,15 +24,11 @@
   background-color: #fbfef9;
 }
 
-.complete__btn {
-  margin-right: 5px;
-  font-size: 12px;
-  padding: 5px;
-  background-color: beige;
-  border-radius: 5px;
-}
-
-.delete__btn {
+.complete__btn,
+.delete__btn,
+.edit__btn,
+.save__btn,
+.cancel__btn {
   margin-right: 5px;
   font-size: 12px;
   padding: 5px;
@@ -48,6 +44,10 @@
   background-color: rgb(175, 243, 191);
 }
 
+.edit__btn:hover {
+  background-color: #dfee9f;
+}
+
 .isComplete {
   background-color: #555;
   color: #fbfef9;
@@ -56,4 +56,31 @@
 
 .isComplete .complete__btn {
   display: none;
+}
+
+.isComplete .edit__btn {
+  display: none;
+}
+
+textarea {
+  border: none;
+  outline: none;
+  resize: none;
+  background-color: #fbfef9;
+  font-size: 20px;
+  height: 25px;
+}
+
+.area__edit {
+  display: flex;
+  flex-direction: column;
+}
+
+.edit__buttons {
+  display: flex;
+  margin-top: 3px;
+}
+
+.save__edit {
+  margin-right: 3px;
 }
