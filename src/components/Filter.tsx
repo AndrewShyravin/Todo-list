@@ -1,8 +1,10 @@
 import './Filter.css';
 
+type FilterOption = 'all' | 'completed' | 'uncompleted' | string;
+
 type FilterProps = {
-  selectFilter: string;
-  setSelectFilter: (str: string) => void;
+  selectFilter: FilterOption;
+  setSelectFilter: (str: FilterOption) => void;
 };
 
 const Filter: React.FC<FilterProps> = ({ selectFilter, setSelectFilter }) => {

@@ -7,18 +7,16 @@ import {
   selectUncompletedFilterdData,
 } from '../redux/selectors';
 
-interface TodoListProps {
-  isClickOnBtn: boolean;
-  selectFilter: string;
-}
+type FilterOption = 'all' | 'completed' | 'uncompleted' | string;
 
-const TodoList: React.FC<TodoListProps> = ({ isClickOnBtn, selectFilter }) => {
+type TodoListProps = {
+  selectFilter: FilterOption;
+};
+
+const TodoList: React.FC<TodoListProps> = ({ selectFilter }) => {
   const todos = useAppSelector(selectTodo);
   const selectCompletedTodos = useAppSelector(selectCompletedFilterdData);
   const selectUncompletedTodos = useAppSelector(selectUncompletedFilterdData);
-  console.log(selectCompletedTodos);
-  console.log(selectUncompletedTodos);
-  console.log(todos);
   const dispatch = useAppDispatch();
   const deleteTodoHandler = (id: string) => {
     dispatch(deleteTodo(id));
@@ -26,43 +24,28 @@ const TodoList: React.FC<TodoListProps> = ({ isClickOnBtn, selectFilter }) => {
   const completeTodoHandler = (id: string) => {
     dispatch(completeTodo(id));
   };
-
-  let filteredTodos;
-
-  if (isClickOnBtn) {
-    if (selectFilter === 'completed') {
-      filteredTodos = selectCompletedTodos;
-    } else if (selectFilter === 'uncompleted') {
-      filteredTodos = selectUncompletedTodos;
-    } else {
-      // Если selectFilter равен 'all', то показываем все задачи
-      filteredTodos = todos;
-    }
-  } else {
-    // Если isClickOnBtn равен false, то показываем все задачи
-    filteredTodos = todos;
-  }
-
-  console.log(filteredTodos);
-  console.log(isClickOnBtn);
+  const direvedTodo =
+    selectFilter === 'all'
+      ? todos
+      : selectFilter === 'completed'
+      ? selectCompletedTodos
+      : selectUncompletedTodos;
 
   return (
     <div className="todos__list">
       {<p>Todo list is epmty</p> &&
-        filteredTodos.map(
-          (todo: { text: string; id: string; isCompleted: boolean }) => {
-            return (
-              <Todo
-                deleteTodo={deleteTodoHandler}
-                completeTodo={completeTodoHandler}
-                text={todo.text}
-                key={todo.id}
-                id={todo.id}
-                isCompleted={todo.isCompleted}
-              />
-            );
-          }
-        )}
+        direvedTodo.map((todo) => {
+          return (
+            <Todo
+              deleteTodo={deleteTodoHandler}
+              completeTodo={completeTodoHandler}
+              text={todo.text}
+              key={todo.id}
+              id={todo.id}
+              isCompleted={todo.isCompleted}
+            />
+          );
+        })}
     </div>
   );
 };
