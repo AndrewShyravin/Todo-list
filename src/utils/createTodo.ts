@@ -1,6 +1,6 @@
 import { v4 as uuidv4 } from 'uuid';
 
-const createTodo = (text) => {
+const createTodo = (text: string) => {
   return {
     text,
     id: uuidv4(),

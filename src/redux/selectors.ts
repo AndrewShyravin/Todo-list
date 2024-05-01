@@ -1,6 +1,7 @@
 import { createSelector } from '@reduxjs/toolkit';
+import { StoreType } from './store';
 
-const selectTodos = (state) => state.todos;
+const selectTodos = (state: StoreType) => state.todos;
 
 export const selectCompletedFilterdData = createSelector(
   selectTodos,

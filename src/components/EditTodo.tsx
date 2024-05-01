@@ -3,8 +3,14 @@ import { useDispatch } from 'react-redux';
 import { editTodo } from '../redux/todoSlice';
 import './EditTodo.css';
 
-const EditTodo = ({ id, setIsOpenEdit }) => {
-  const [textEdit, setTextEdit] = useState('');
+type EditTodoProps = {
+  id: string;
+  setIsOpenEdit: (bool: boolean) => void;
+  text: string;
+};
+
+const EditTodo: React.FC<EditTodoProps> = ({ id, setIsOpenEdit, text }) => {
+  const [textEdit, setTextEdit] = useState(text);
   const dispatch = useDispatch();
 
   const editTextHandler = () => {
@@ -12,7 +18,7 @@ const EditTodo = ({ id, setIsOpenEdit }) => {
     setIsOpenEdit(false);
   };
 
-  const handleEdit = (event) => {
+  const handleEdit = (event: any) => {
     setTextEdit(event.target.value);
   };
   return (

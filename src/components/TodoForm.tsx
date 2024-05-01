@@ -1,15 +1,27 @@
-import { useState, useEffect } from 'react';
-import { useDispatch } from 'react-redux';
+import { useState, useEffect, ChangeEvent, FormEvent } from 'react';
+import { useAppDispatch } from './hooks/hooks';
 import { addTodo } from '../redux/todoSlice';
 import createTodo from '../utils/createTodo';
 import Filter from './Filter';
 import './TodoForm.css';
 
-const TodoForm = ({ setIsClickOnBtn, selectFilter, setSelectFilter }) => {
-  const [text, setText] = useState('');
-  const dispatch = useDispatch();
+type TodoFormProps = {
+  isOnClickBtn: boolean;
+  setIsClickOnBtn: (bool: boolean) => void;
+  selectFilter: string;
+  setSelectFilter: (str: string) => void;
+};
 
-  const submitHandler = (event) => {
+const TodoForm: React.FC<TodoFormProps> = ({
+  isOnClickBtn,
+  setIsClickOnBtn,
+  selectFilter,
+  setSelectFilter,
+}) => {
+  const [text, setText] = useState('');
+  const dispatch = useAppDispatch();
+
+  const submitHandler = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     if (text) {
       dispatch(addTodo(createTodo(text)));
@@ -17,7 +29,7 @@ const TodoForm = ({ setIsClickOnBtn, selectFilter, setSelectFilter }) => {
     setText('');
   };
   const filterCompleteTodoHandler = () => {
-    setIsClickOnBtn((prev) => !prev);
+    setIsClickOnBtn(!isOnClickBtn);
   };
 
   useEffect(() => {

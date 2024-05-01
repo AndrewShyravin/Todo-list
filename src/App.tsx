@@ -13,6 +13,7 @@ function App() {
     <div className="App">
       <h1>Todo-List App</h1>
       <TodoForm
+        isOnClickBtn={isClickOnBtn}
         setIsClickOnBtn={setIsClickOnBtn}
         selectFilter={selectFilter}
         setSelectFilter={setSelectFilter}

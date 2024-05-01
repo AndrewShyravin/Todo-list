@@ -1,6 +1,11 @@
 import './Filter.css';
 
-const Filter = ({ selectFilter, setSelectFilter }) => {
+type FilterProps = {
+  selectFilter: string;
+  setSelectFilter: (str: string) => void;
+};
+
+const Filter: React.FC<FilterProps> = ({ selectFilter, setSelectFilter }) => {
   return (
     <div className="select__menu">
       <label>Filter as</label>

@@ -10,7 +10,8 @@ import {
   REGISTER,
 } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
-import todoReducer from './todoSlice.js';
+import todoReducer from './todoSlice';
+import { TodoType } from '../components/types/TodoType.js';
 
 const rootReducer = combineReducers({
   todos: todoReducer,
@@ -23,6 +24,10 @@ const persistConfig = {
 
 const persistedReducer = persistReducer(persistConfig, rootReducer);
 
+export type StoreType = {
+  todos: TodoType[];
+};
+
 const store = configureStore({
   reducer: persistedReducer,
   middleware: (getDefaultMiddleware) =>
@@ -33,5 +38,7 @@ const store = configureStore({
     }),
 });
 
+export type RootState = ReturnType<typeof store.getState>;
+export type AppDispatch = typeof store.dispatch;
 export const persistor = persistStore(store);
 export default store;
