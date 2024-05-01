@@ -1,4 +1,4 @@
-import { useAppDispatch, useAppSelector } from './hooks/hooks';
+import { useAppDispatch, useAppSelector } from '../hooks/hooks';
 import { completeTodo, deleteTodo, selectTodo } from '../redux/todoSlice';
 import Todo from './Todo';
 import './TodoList.css';

@@ -1,5 +1,5 @@
 import { useState, useEffect, ChangeEvent, FormEvent } from 'react';
-import { useAppDispatch } from './hooks/hooks';
+import { useAppDispatch } from '../hooks/hooks';
 import { addTodo } from '../redux/todoSlice';
 import createTodo from '../utils/createTodo';
 import Filter from './Filter';

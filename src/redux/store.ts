@@ -11,7 +11,7 @@ import {
 } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
 import todoReducer from './todoSlice';
-import { TodoType } from '../components/types/TodoType.js';
+import { TodoType } from '../types/TodoType.js';
 
 const rootReducer = combineReducers({
   todos: todoReducer,
