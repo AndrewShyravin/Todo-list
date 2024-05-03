@@ -1,13 +1,12 @@
-import { useAppDispatch, useAppSelector } from '../hooks/hooks';
-import { completeTodo, deleteTodo, selectTodo } from '../redux/todoSlice';
-import Todo from './Todo';
-import './TodoList.css';
+import { useAppDispatch, useAppSelector } from '../../hooks/hooks';
+import { completeTodo, deleteTodo, selectTodo } from '../../redux/todoSlice';
+import Todo from '../Todo/Todo';
 import {
   selectCompletedFilterdData,
   selectUncompletedFilterdData,
-} from '../redux/selectors';
-
-type FilterOption = 'all' | 'completed' | 'uncompleted' | string;
+} from '../../redux/selectors';
+import { FilterOption } from '../../types/FilterOption';
+import './TodoList.css';
 
 type TodoListProps = {
   selectFilter: FilterOption;

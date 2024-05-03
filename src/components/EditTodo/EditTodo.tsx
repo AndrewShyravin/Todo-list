@@ -1,6 +1,6 @@
-import { useState } from 'react';
+import { FormEvent, useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { editTodo } from '../redux/todoSlice';
+import { editTodo } from '../../redux/todoSlice';
 import './EditTodo.css';
 
 type EditTodoProps = {
@@ -18,31 +18,31 @@ const EditTodo: React.FC<EditTodoProps> = ({ id, setIsOpenEdit, text }) => {
     setIsOpenEdit(false);
   };
 
-  const handleEdit = (event: any) => {
+  const handleEdit = (event: React.ChangeEvent<HTMLInputElement>) => {
     setTextEdit(event.target.value);
   };
   return (
     <div className="area__edit">
-      <form>
+      <div>
         <input
           value={textEdit}
           placeholder="Редактирование задачи"
           onChange={handleEdit}
         />
-        <div className="edit__buttons">
-          <button className="save__btn" onClick={editTextHandler}>
-            Save
-          </button>
-          <button
-            className="cancel__btn"
-            onClick={() => {
-              setIsOpenEdit(false);
-            }}
-          >
-            Cancel
-          </button>
-        </div>
-      </form>
+      </div>
+      <div className="edit__buttons">
+        <button className="save__btn" onClick={editTextHandler}>
+          Save
+        </button>
+        <button
+          className="cancel__btn"
+          onClick={() => {
+            setIsOpenEdit(false);
+          }}
+        >
+          Cancel
+        </button>
+      </div>
     </div>
   );
 };

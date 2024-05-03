@@ -1,10 +1,11 @@
 import { useState } from 'react';
 import './App.css';
-import TodoForm from './components/TodoForm';
-import TodoList from './components/TodoList';
+import TodoForm from './components/TodoForm/TodoForm';
+import TodoList from './components/TodoList/TodoList';
+import { FilterOption } from './types/FilterOption';
 
 function App() {
-  const [selectFilter, setSelectFilter] = useState('all');
+  const [selectFilter, setSelectFilter] = useState<FilterOption>('all');
 
   return (
     <div className="App">

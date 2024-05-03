@@ -1,11 +1,10 @@
 import { useState, FormEvent } from 'react';
-import { useAppDispatch } from '../hooks/hooks';
-import { addTodo } from '../redux/todoSlice';
-import createTodo from '../utils/createTodo';
-import Filter from './Filter';
+import { useAppDispatch } from '../../hooks/hooks';
+import { addTodo } from '../../redux/todoSlice';
+import createTodo from '../../utils/createTodo';
+import Filter from '../Filter/Filter';
+import { FilterOption } from '../../types/FilterOption';
 import './TodoForm.css';
-
-type FilterOption = 'all' | 'completed' | 'uncompleted' | string;
 
 type TodoFormProps = {
   selectFilter: FilterOption;

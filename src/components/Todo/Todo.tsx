@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import './Todo.css';
-import EditTodo from './EditTodo';
+import EditTodo from '../EditTodo/EditTodo';
 
 type TodoProps = {
   text: string;

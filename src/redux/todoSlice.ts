@@ -1,6 +1,7 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { StoreType } from './store';
 import { TodoType } from '../types/TodoType';
+import { EditTodoType } from '../types/EditTodoType';
 
 const initialState: TodoType[] = [];
 
@@ -20,7 +21,7 @@ const todoSlice = createSlice({
         completedTodo.isCompleted = !completedTodo.isCompleted;
       }
     },
-    editTodo: (state, action) => {
+    editTodo: (state, action: PayloadAction<EditTodoType>) => {
       const { id, newText } = action.payload;
       const todoToEdit = state.find((todos) => todos.id === id);
       if (todoToEdit) {

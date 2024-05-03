@@ -1,6 +1,5 @@
+import { FilterOption } from '../../types/FilterOption';
 import './Filter.css';
-
-type FilterOption = 'all' | 'completed' | 'uncompleted' | string;
 
 type FilterProps = {
   selectFilter: FilterOption;
@@ -12,7 +11,9 @@ const Filter: React.FC<FilterProps> = ({ selectFilter, setSelectFilter }) => {
     <div className="select__menu">
       <label>Filter as</label>
       <select
-        onChange={(event) => setSelectFilter(event.target.value)}
+        onChange={(event) =>
+          setSelectFilter(event.target.value as FilterOption)
+        }
         value={selectFilter}
       >
         <option value="all">все</option>
